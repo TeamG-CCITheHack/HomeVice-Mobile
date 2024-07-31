@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/common/theme/theme.dart';
-import 'package:homevice/app/modules/main/views/main_view.dart';
 import 'package:homevice/app/shared/widgets/custom_elevated_button.dart';
 import 'package:homevice/app/shared/widgets/custom_text_field.dart';
-
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +21,7 @@ class LoginView extends GetView<LoginController> {
           children: [
             SvgPicture.asset(
               'assets/svg/Logo.svg',
-              height: MediaQuery.sizeOf(context).height * 0.13,
+              height: MediaQuery.of(context).size.height * 0.13,
             ),
             const SizedBox(height: 75),
             CustomTextField(
@@ -31,7 +29,7 @@ class LoginView extends GetView<LoginController> {
               hintText: '',
               labelStyle: regularText16,
               isAutoValidate: false,
-              isRequired: false,
+              isRequired: true,
               isPassword: false,
               isPasswordEmpty: false,
               isPasswordHide: false,
@@ -39,17 +37,23 @@ class LoginView extends GetView<LoginController> {
               controller: controller.emailController,
             ),
             const SizedBox(height: 20),
-            CustomTextField(
-              label: 'Password',
-              hintText: '',
-              labelStyle: regularText16,
-              isAutoValidate: false,
-              isRequired: false,
-              isPassword: true,
-              isPasswordEmpty: false,
-              isPasswordHide: false,
-              textInputType: TextInputType.visiblePassword,
-              controller: controller.passwordController,
+            Obx(
+              () => CustomTextField(
+                label: 'Password',
+                hintText: '',
+                labelStyle: regularText16,
+                isAutoValidate: false,
+                isRequired: true,
+                isPassword: true,
+                isPasswordEmpty: false,
+                isPasswordHide: controller.isPasswordHide.value,
+                textInputType: TextInputType.visiblePassword,
+                controller: controller.passwordController,
+                onPressedIconPassword: () {
+                  controller.isPasswordHide.value =
+                      !controller.isPasswordHide.value;
+                },
+              ),
             ),
             Align(
               alignment: Alignment.centerRight,
@@ -62,11 +66,11 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             const SizedBox(height: 20),
-            CustomElevatedButton(
-              onPressed: () {
-                Get.toNamed('/main'); // TODO: switch to Get.offAndToNamed
-              },
-              text: 'Login',
+            Obx(
+              () => CustomElevatedButton(
+                onPressed: controller.onLoginClicked(),
+                text: 'Login',
+              ),
             ),
             const SizedBox(height: 50),
             Row(
@@ -87,9 +91,9 @@ class LoginView extends GetView<LoginController> {
                       color: themeData.primaryColor,
                     ),
                   ),
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

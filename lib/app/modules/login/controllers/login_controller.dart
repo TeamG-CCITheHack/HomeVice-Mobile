@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:getcrew_crew_v2/data/local/get_utils.dart' as get_utils;
-// import 'package:getcrew_crew_v2/services/authentication_service.dart';
-// import 'package:getcrew_crew_v2/ui/forget_password/forget_password_page.dart';
-// import 'package:getcrew_crew_v2/ui/register/register_page.dart';
-// import 'package:getcrew_crew_v2/ui/splash_success/splash_success_page.dart';
-// import 'package:getcrew_crew_v2/ui/widgets/show_custom_dialog.dart';
-// import 'package:getcrew_crew_v2/utils/logging.dart';
-// import 'package:getcrew_crew_v2/utils/validation_helpers.dart';
+import 'package:homevice/app/service/api_service.dart';
+import 'package:homevice/app/service/shared_preferences.dart';
 
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
@@ -20,98 +14,59 @@ class LoginController extends GetxController {
   var correctEmail = false.obs;
   var correctPassword = false.obs;
 
-  // LoginPageController() {
-  //   _addListeners();
-  // }
+  final ApiService _apiService = ApiService();
+  final SharedPreferencesService _sharedPreferencesService =
+      SharedPreferencesService();
 
-  // void _addListeners() {
-  //   _addControllerListener(
-  //     emailController,
-  //     ValidationHelpers.validateEmail,
-  //     correctEmail,
-  //   );
-  //   _addControllerListener(
-  //     passwordController,
-  //     (text) => ValidationHelpers.validatePassword(
-  //       value: text,
-  //       isRegister: false,
-  //     ),
-  //     correctPassword,
-  //   );
-  // }
-
-  void _addControllerListener(
-    TextEditingController controller,
-    String? Function(String) validator,
-    RxBool correct,
-  ) {
-    controller.addListener(
-      () {
-        String? textValidate = validator(controller.text);
-        correct.value = textValidate == null;
-        formValid.value = _isFormValid();
-        // log.i('formValid ${formValid.value}');
-      },
-    );
+  @override
+  void onInit() {
+    super.onInit();
+    _addListeners();
+    _checkToken();
   }
 
-  bool _isFormValid() {
-    return correctEmail.value && correctPassword.value;
+  void _addListeners() {
+    emailController.addListener(_validateForm);
+    passwordController.addListener(_validateForm);
   }
 
-  // void onPressedIconPassword() {
-  //   isPasswordHide.value = !isPasswordHide.value;
-  //   log.i('isPasswordHide ${isPasswordHide.value}');
-  // }
-
-  // String? validatorEmail(String? value) {
-  //   return ValidationHelpers.validateEmail(value ?? "");
-  // }
-
-  // String? validatorPassword(String? value) {
-  //   return ValidationHelpers.validatePassword(
-  //     value: value ?? "",
-  //     isRegister: false,
-  //   );
-  // }
+  void _validateForm() {
+    correctEmail.value = emailController.text.isNotEmpty;
+    correctPassword.value = passwordController.text.isNotEmpty;
+    formValid.value = correctEmail.value && correctPassword.value;
+  }
 
   VoidCallback? onLoginClicked() {
     return formValid.value ? login : null;
   }
 
-  // void onForgetPasswordClicked() {
-  //   Get.to(() => const ForgetPasswordPage());
-  // }
-
-  // void onRegisterClicked() {
-  //   Get.to(() => const RegisterPageView());
-  // }
-
   void login() async {
     isLoadingLogin.value = true;
-    // final authService = AuthenticationService();
-    // final loginSuccess = await authService.login(
-    //     email: emailController.text, password: passwordController.text);
-    // get_utils.GetUtils prefs = get_utils.GetUtils();
-    // if (!loginSuccess) {
-    //   final errorMessage = authService.message ?? 'Unknown error';
-    //   showCustomDialog(
-    //     title: 'Data Tidak Sesuai',
-    //     message: errorMessage,
-    //   );
-    //   isLoadingLogin.value = false;
-    // } else {
-    // Get.offAll(
-    //   () => const SplashSuccessPage(),
-    //   arguments: {
-    //     'message': 'Kamu sudah berhasil masuk',
-    //     'routeAfterSplash': 'bottomNavBar',
-    //   },
-    // );
+    final email = emailController.text;
+    final password = passwordController.text;
 
-    emailController.clear();
-    passwordController.clear();
-    // prefs.setIsGuest(false);
-    isLoadingLogin.value = false;
+    try {
+      final response = await _apiService.login(email, password);
+
+      if (response.statusCode == 200 && response.data['code'] == 200) {
+        final token = response.data['data']['token'];
+        await _sharedPreferencesService.saveToken(token);
+        Get.offAndToNamed('/main');
+      } else {
+        Get.snackbar('Error', 'Invalid login credentials');
+      }
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to login. Please try again.');
+    } finally {
+      isLoadingLogin.value = false;
+    }
+  }
+
+  void _checkToken() async {
+    final token = await _sharedPreferencesService.getToken();
+
+    if (token != null) {
+      Get.offAndToNamed('/main');
+    }
   }
 }
