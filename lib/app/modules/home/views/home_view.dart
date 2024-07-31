@@ -72,12 +72,24 @@ class HomeView extends GetView<HomeController> {
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
+                          clipBehavior: Clip.none,
                           child: Row(
                             children: services
                                 .map((service) => ServiceCard(service: service))
                                 .toList(),
                           ),
                         ),
+                        // ListView.separated(
+                        //   shrinkWrap: true,
+                        //   scrollDirection: Axis.horizontal,
+                        //   itemBuilder: (context, index) {
+                        //     var service = services[index];
+                        //     return ServiceCard(service: service);
+                        //   },
+                        //   separatorBuilder: (context, index) =>
+                        //       const SizedBox(width: 5),
+                        //   itemCount: services.length,
+                        // )
                       ],
                     ),
                   ),

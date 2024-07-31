@@ -10,6 +10,7 @@ import 'package:homevice/app/shared/widgets/botnavbar_widget.dart';
 
 import '../controllers/main_controller.dart';
 
+// ignore: must_be_immutable
 class MainView extends GetView<MainController> {
   var selectedIndex = 0.obs;
 
