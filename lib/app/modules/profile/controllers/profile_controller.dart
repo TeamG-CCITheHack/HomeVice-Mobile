@@ -1,23 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homevice/app/service/shared_preferences.dart';
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+  final SharedPreferencesService _sharedPreferencesService =
+      SharedPreferencesService();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  VoidCallback? onLogoutClicked() {
+    return logout;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void logout() async {
+    await _sharedPreferencesService.clearToken();
+    Get.offAndToNamed('/login');
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
