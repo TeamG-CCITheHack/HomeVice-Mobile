@@ -1,5 +1,5 @@
-// servicecard_widget.dart
 import 'package:flutter/material.dart';
+import 'package:homevice/app/common/theme/buttons.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/data/model/service_model.dart';
 
@@ -10,18 +10,68 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 10),
+      child: InkWell(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) => Dialog(
+              backgroundColor: Colors.transparent,
+              child: SingleChildScrollView(
+                child: IntrinsicWidth(
+                  child: Column(
+                    children: [
+                      _cardBuilder(
+                        context,
+                        MediaQuery.of(context).size.width * 0.7,
+                        MediaQuery.of(context).size.height * 0.2,
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ElevatedButton(
+                            style: primaryButton,
+                            onPressed: () {},
+                            child: const Text('Chat'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('Pesan'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+        child: _cardBuilder(
+          context,
+          MediaQuery.of(context).size.width * 0.5,
+          MediaQuery.of(context).size.width * 0.3,
+        ),
+      ),
+    );
+  }
+
+  Card _cardBuilder(BuildContext context, double width, double height) {
     return Card(
       clipBehavior: Clip.antiAlias,
       color: Colors.white,
       child: Container(
+        width: width,
         padding: const EdgeInsets.all(0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
               service.imagePath,
-              width: 200,
-              height: 150,
+              width: width,
+              height: height,
               fit: BoxFit.cover,
             ),
             Container(
