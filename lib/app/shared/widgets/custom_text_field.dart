@@ -88,7 +88,7 @@ class CustomTextField extends StatelessWidget {
           obscureText: isPasswordHide,
           controller: controller,
           style: const TextStyle(
-            fontSize: 12,
+            fontSize: 16,
           ),
           cursorColor: Colors.blue,
           keyboardType: textInputType,
@@ -105,8 +105,7 @@ class CustomTextField extends StatelessWidget {
                       isPasswordHide ? Icons.visibility_off : Icons.visibility,
                     ),
                     color: Colors.black,
-                    onPressed:
-                        onPressedIconPassword, // Memastikan fungsi tidak null sebelum digunakan
+                    onPressed: onPressedIconPassword,
                   )
                 : null,
             enabledBorder: OutlineInputBorder(
@@ -115,40 +114,40 @@ class CustomTextField extends StatelessWidget {
                 style: BorderStyle.solid,
                 width: 2,
               ),
-              borderRadius: BorderRadius.circular(100.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: themeData.primaryColor,
                 style: BorderStyle.solid,
-                width: 2,
+                width: 3,
               ),
-              borderRadius: BorderRadius.circular(100.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
                 color: themeData.primaryColor,
                 style: BorderStyle.solid,
-                width: 5,
+                width: 2,
               ),
-              borderRadius: BorderRadius.circular(100.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             errorBorder: OutlineInputBorder(
               borderSide: const BorderSide(
                 color: Colors.red,
               ),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderSide: const BorderSide(
                 color: Colors.blue,
                 style: BorderStyle.solid,
-                width: 5,
+                width: 3,
               ),
-              borderRadius: BorderRadius.circular(100.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             contentPadding: const EdgeInsets.symmetric(
-              vertical: 12.0,
+              vertical: 16,
               horizontal: 16,
             ),
           ),

@@ -10,7 +10,7 @@ class CustomElevatedButton extends StatelessWidget {
   });
 
   final String text;
-  final Function() onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {

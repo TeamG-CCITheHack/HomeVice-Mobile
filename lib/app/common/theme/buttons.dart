@@ -26,10 +26,10 @@ final blackButton = ElevatedButton.styleFrom(
 ));
 
 final primaryButton = ElevatedButton.styleFrom(
-  backgroundColor: const Color(0xFFBF0000),
+  backgroundColor: const Color(0xFF4699BC),
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(20.0),
   ),
 ).merge(ButtonStyle(
-  overlayColor: WidgetStateProperty.all<Color>(const Color(0xFF590000)),
+  overlayColor: WidgetStateProperty.all<Color>(const Color(0xFFFFFFFF)),
 ));
