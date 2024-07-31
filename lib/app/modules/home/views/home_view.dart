@@ -1,5 +1,5 @@
-// home_view.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/data/data_provider.dart';
@@ -19,9 +19,6 @@ class HomeView extends GetView<HomeController> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-      ),
       extendBodyBehindAppBar: true,
       body: Container(
         decoration: const BoxDecoration(
@@ -36,90 +33,80 @@ class HomeView extends GetView<HomeController> {
             ],
           ),
         ),
-        padding: EdgeInsets.fromLTRB(
-            10,
-            AppBar().preferredSize.height +
-                MediaQuery.of(context).viewPadding.top,
-            10,
-            0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.only(bottom: 16.0),
-                width: double.infinity,
-                child: Text(
-                  "Hi, Eunwoo!",
-                  style: semiBoldText24.copyWith(
-                    fontSize: 30,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Column(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SingleChildScrollView(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Service Recommendation
                   Container(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Rekomendasi Layanan",
-                          style: mediumText16.copyWith(),
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          clipBehavior: Clip.none,
-                          child: Row(
-                            children: services
-                                .map((service) => ServiceCard(service: service))
-                                .toList(),
-                          ),
-                        ),
-                        // ListView.separated(
-                        //   shrinkWrap: true,
-                        //   scrollDirection: Axis.horizontal,
-                        //   itemBuilder: (context, index) {
-                        //     var service = services[index];
-                        //     return ServiceCard(service: service);
-                        //   },
-                        //   separatorBuilder: (context, index) =>
-                        //       const SizedBox(width: 5),
-                        //   itemCount: services.length,
-                        // )
-                      ],
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    width: double.infinity,
+                    child: Text(
+                      "Hi, Eunwoo!",
+                      style: semiBoldText24.copyWith(
+                        fontSize: 30,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  // All Services
-                  Container(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Service Recommendation
+                      Container(
+                        padding: const EdgeInsets.all(0.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Semua Layanan",
-                              style: semiBoldText20.copyWith(),
+                              "Rekomendasi Layanan",
+                              style: mediumText16.copyWith(),
                             ),
-                            Text(
-                              "See more",
-                              style: mediumText16.copyWith(color: Colors.grey),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              clipBehavior: Clip.none,
+                              child: Row(
+                                children: services
+                                    .map((service) =>
+                                        ServiceCard(service: service))
+                                    .toList(),
+                              ),
                             ),
                           ],
                         ),
-                        AllServicesGrid(services: allServices),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 30),
+                      // All Services
+                      Container(
+                        padding: const EdgeInsets.all(0.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Semua Layanan",
+                                  style: semiBoldText20.copyWith(),
+                                ),
+                                Text(
+                                  "See more",
+                                  style:
+                                      mediumText16.copyWith(color: Colors.grey),
+                                ),
+                              ],
+                            ),
+                            AllServicesGrid(services: allServices),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),
