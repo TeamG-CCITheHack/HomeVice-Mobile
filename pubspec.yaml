@@ -13,6 +13,10 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_svg: ^2.0.10+1
   nb_utils: ^7.0.3
+  dio: ^5.5.0+1
+  get_storage: ^2.1.1
+  logger: ^2.4.0
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_lints: 4.0.0
