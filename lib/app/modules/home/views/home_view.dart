@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/data/data_provider.dart';
