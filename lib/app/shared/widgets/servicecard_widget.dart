@@ -32,13 +32,40 @@ class ServiceCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           ElevatedButton(
-                            style: primaryButton,
+                            style: transparentButton,
                             onPressed: () {},
-                            child: const Text('Chat'),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.chat,
+                                  color: Colors.black,
+                                ),
+                                const SizedBox(width: 8.0),
+                                Text(
+                                  'Chat',
+                                  style: regularText18,
+                                ),
+                              ],
+                            ),
                           ),
                           ElevatedButton(
+                            style: transparentButton,
                             onPressed: () {},
-                            child: const Text('Pesan'),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Pesan',
+                                  style: regularText18,
+                                ),
+                                const SizedBox(width: 8.0),
+                                const Icon(
+                                  Icons.arrow_right_alt_rounded,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
