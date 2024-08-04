@@ -39,30 +39,34 @@ class ServiceCard extends StatelessWidget {
                               children: [
                                 const Icon(
                                   Icons.chat,
-                                  color: Colors.black,
+                                  color: Color(0xFF4699BC),
                                 ),
                                 const SizedBox(width: 8.0),
                                 Text(
                                   'Chat',
-                                  style: regularText18,
+                                  style: regularText18.copyWith(
+                                    color: const Color(0xFF4699BC),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                           ElevatedButton(
-                            style: transparentButton,
+                            style: primaryButton,
                             onPressed: () {},
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   'Pesan',
-                                  style: regularText18,
+                                  style: regularText18.copyWith(
+                                    color: Colors.white,
+                                  ),
                                 ),
                                 const SizedBox(width: 8.0),
                                 const Icon(
                                   Icons.arrow_right_alt_rounded,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               ],
                             ),
