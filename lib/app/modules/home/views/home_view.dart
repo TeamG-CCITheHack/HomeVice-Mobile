@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/data/data_provider.dart';
-import 'package:homevice/app/shared/widgets/allservicegrid_widget.dart';
+import 'package:homevice/app/shared/widgets/allservicesgrid_widget.dart';
 import 'package:homevice/app/shared/widgets/servicecard_widget.dart';
 
 import '../controllers/home_controller.dart';

@@ -17,7 +17,7 @@ class LoginView extends GetView<LoginController> {
         if (controller.isLoadingLogin.value) {
           return const Center(
             child: CircularProgressIndicator(
-              color: Colors.blue,
+              color: Color(0xFF4699BC),
             ),
           );
         } else {
