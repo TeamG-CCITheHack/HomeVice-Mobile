@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.onCompleted,
     this.isPasswordEmpty = false,
+    this.isShowLabel = false,
   });
 
   final String label;
@@ -46,39 +47,43 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator; // Perubahan tipe data di sini
   final VoidCallback? onCompleted; // Perubahan tipe data di sini
   final bool isPasswordEmpty;
+  final bool isShowLabel;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        RichText(
-          textAlign: TextAlign.left,
-          text: TextSpan(
-            style: regularText16,
-            children: [
-              const WidgetSpan(
-                child: SizedBox(
-                  width: 16,
-                ),
-              ),
-              TextSpan(
-                text: label,
-                style: labelStyle,
-              ),
-              const WidgetSpan(
-                child: SizedBox(
-                  width: 4,
-                ),
-              ),
-              if (isRequired)
-                TextSpan(
-                  text: '*',
-                  style: semiBoldText14.copyWith(
-                    color: Colors.red,
+        Visibility(
+          visible: isShowLabel,
+          child: RichText(
+            textAlign: TextAlign.left,
+            text: TextSpan(
+              style: regularText16,
+              children: [
+                const WidgetSpan(
+                  child: SizedBox(
+                    width: 16,
                   ),
                 ),
-            ],
+                TextSpan(
+                  text: label,
+                  style: labelStyle,
+                ),
+                const WidgetSpan(
+                  child: SizedBox(
+                    width: 4,
+                  ),
+                ),
+                if (isRequired)
+                  TextSpan(
+                    text: '*',
+                    style: semiBoldText14.copyWith(
+                      color: Colors.red,
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 4),
@@ -87,9 +92,7 @@ class CustomTextField extends StatelessWidget {
           enabled: isEnabled,
           obscureText: isPasswordHide,
           controller: controller,
-          style: const TextStyle(
-            fontSize: 16,
-          ),
+          style: regularText16,
           cursorColor: Colors.blue,
           keyboardType: textInputType,
           maxLines: maxLines,
@@ -109,20 +112,16 @@ class CustomTextField extends StatelessWidget {
                   )
                 : null,
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: themeData.primaryColor,
-                style: BorderStyle.solid,
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(20.0),
+              borderSide: const BorderSide(),
+              borderRadius: BorderRadius.circular(27.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: themeData.primaryColor,
                 style: BorderStyle.solid,
-                width: 3,
+                width: 2,
               ),
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(27),
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
@@ -130,7 +129,7 @@ class CustomTextField extends StatelessWidget {
                 style: BorderStyle.solid,
                 width: 2,
               ),
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(27.0),
             ),
             errorBorder: OutlineInputBorder(
               borderSide: const BorderSide(
