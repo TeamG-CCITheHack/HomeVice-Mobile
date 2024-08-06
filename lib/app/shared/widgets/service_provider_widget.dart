@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/buttons.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/data/model/service_model.dart';
@@ -163,7 +164,10 @@ class ServiceProviderWidget extends StatelessWidget {
                           Flexible(
                             child: ElevatedButton(
                               style: primaryButton,
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.toNamed("/order",
+                                    arguments: service); // here
+                              },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

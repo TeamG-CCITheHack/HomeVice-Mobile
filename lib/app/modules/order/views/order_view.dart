@@ -12,9 +12,12 @@ class OrderView extends GetView<OrderController> {
   const OrderView({super.key});
   @override
   Widget build(BuildContext context) {
+    final service = controller.selectedService?.value;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
+        foregroundColor: Colors.white,
         backgroundColor: Colors.transparent,
         title: Text(
           'Pemesanan',
@@ -54,7 +57,7 @@ class OrderView extends GetView<OrderController> {
                           Radius.circular(50),
                         ),
                         child: Image.asset(
-                          "assets/images/service-ac.jpg",
+                          service?.imagePath ?? "assets/images/service-ac.jpg",
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -64,16 +67,16 @@ class OrderView extends GetView<OrderController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "service.name",
-                          style: mediumText20,
+                          service?.name ?? "Error",
+                          style: semiBoldText20,
                         ),
                         const SizedBox(height: 4.0),
                         Text(
-                          "service.specialty",
+                          service?.specialty ?? "Error",
                           style: regularText14,
                         ),
                         Text(
-                          "service.location",
+                          service?.location ?? "Error",
                           style: regularText14,
                         ),
                       ],
@@ -112,7 +115,7 @@ class OrderView extends GetView<OrderController> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: CustomElevatedButton(
           onPressed: () {
-            Get.toNamed("/payment");
+            Get.toNamed("/payment"); //here
           },
           text: "Lanjut ke pembayaran",
         ),
