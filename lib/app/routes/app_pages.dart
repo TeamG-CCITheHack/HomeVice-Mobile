@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:homevice/app/modules/order/views/payment_progress_view.dart';
+import 'package:homevice/app/modules/order/views/payment_view.dart';
 
 import '../modules/chat/bindings/chat_binding.dart';
 import '../modules/chat/views/chat_view.dart';
@@ -77,6 +79,16 @@ class AppPages {
     GetPage(
       name: _Paths.ORDER,
       page: () => const OrderView(),
+      binding: OrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT,
+      page: () => const PaymentView(),
+      binding: OrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_PROGRESS,
+      page: () => const PaymentProgressView(),
       binding: OrderBinding(),
     ),
   ];
