@@ -38,7 +38,7 @@ class OrderView extends GetView<OrderController> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -112,9 +112,9 @@ class OrderView extends GetView<OrderController> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: CustomElevatedButton(
           onPressed: () {
-            Get.offAndToNamed("");
+            Get.toNamed("/payment");
           },
-          text: "Lanjut",
+          text: "Lanjut ke pembayaran",
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -133,6 +133,10 @@ class OrderView extends GetView<OrderController> {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50),
           borderSide: const BorderSide(color: Color(0xFF3393CF), width: 2),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.black),
+          borderRadius: BorderRadius.circular(50),
         ),
       ),
       readOnly: true,
