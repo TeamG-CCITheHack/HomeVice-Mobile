@@ -55,6 +55,10 @@ class DropDown<T> extends StatelessWidget {
             borderRadius: BorderRadius.circular(50),
             borderSide: focusBorderSide ?? BorderSide.none,
           ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.black),
+            borderRadius: BorderRadius.circular(50),
+          ),
           hintText: hintText,
         ),
       ),
