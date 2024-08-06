@@ -11,10 +11,9 @@ final transparentButtonBlackBorder = ElevatedButton.styleFrom(
 
 final transparentButton = ElevatedButton.styleFrom(
   backgroundColor: Colors.white,
-  side: const BorderSide(width: 0.8, color: Color.fromRGBO(58, 151, 169, 1.0)),
+  side: const BorderSide(width: 0.8, color: Color(0xFF4699BC)),
 ).merge(ButtonStyle(
-  overlayColor:
-      WidgetStateProperty.all<Color>(const Color.fromRGBO(58, 151, 169, 1)),
+  overlayColor: WidgetStateProperty.all<Color>(const Color(0xFF4699BC)),
 ));
 
 final blackButton = ElevatedButton.styleFrom(

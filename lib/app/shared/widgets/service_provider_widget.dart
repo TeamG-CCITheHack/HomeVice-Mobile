@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homevice/app/common/theme/buttons.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
 import 'package:homevice/app/data/model/service_model.dart';
 
@@ -137,75 +138,47 @@ class ServiceProviderWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
-                            child: InkWell(
-                              onTap: () {},
-                              borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                alignment: Alignment.center,
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 12,
-                                ),
-                                // margin: const EdgeInsets.only(
-                                //     right: 8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
+                            child: ElevatedButton(
+                              style: transparentButton,
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.chat,
+                                    color: Color(0xFF4699BC),
+                                  ),
+                                  const SizedBox(width: 8.0),
+                                  Text(
+                                    'Chat',
+                                    style: regularText18.copyWith(
                                       color: const Color(0xFF4699BC),
-                                      width: 2.0),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(
-                                      Icons.chat,
-                                      color: Color(0xFF4699BC),
                                     ),
-                                    const SizedBox(width: 8.0),
-                                    Text(
-                                      'Chat',
-                                      style: semiBoldText16.copyWith(
-                                        color: const Color(0xFF4699BC),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                           const SizedBox(width: 10),
                           Flexible(
-                            child: InkWell(
-                              onTap: () {},
-                              borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                alignment: Alignment.center,
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 12,
-                                ),
-                                // margin: const EdgeInsets.only(
-                                //     right: 8.0),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFF4699BC),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Pesan',
-                                      style: semiBoldText16.copyWith(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8.0),
-                                    const Icon(
-                                      Icons.arrow_right_alt_rounded,
+                            child: ElevatedButton(
+                              style: primaryButton,
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Pesan',
+                                    style: regularText18.copyWith(
                                       color: Colors.white,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  const SizedBox(width: 8.0),
+                                  const Icon(
+                                    Icons.arrow_right_alt_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
