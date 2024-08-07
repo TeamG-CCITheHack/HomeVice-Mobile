@@ -1,4 +1,5 @@
 import 'package:homevice/app/data/model/allservice_model.dart';
+import 'package:homevice/app/data/model/scheduletask_model.dart';
 import 'package:homevice/app/data/model/service_model.dart';
 import 'package:homevice/app/modules/customer/home/views/home_view.dart';
 
@@ -198,6 +199,75 @@ List<ServiceModel> serviceDataList() {
     location: "Pekanbaru",
     rating: 4.9,
     soldServices: 29,
+  ));
+  return list;
+}
+
+List<ScheduleTaskModel> scheduleTaskDataList() {
+  List<ScheduleTaskModel> list = [];
+  list.add(ScheduleTaskModel(
+    date: "8 Agustus 2024",
+    tasks: [
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Cha Eunwoo",
+        type: "AC",
+        date: "8 Agustus 2024",
+        status: true,
+      ),
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Lee Eunwoo",
+        type: "Kulkas",
+        date: "8 Agustus 2024",
+        status: false,
+      ),
+    ],
+  ));
+  list.add(ScheduleTaskModel(
+    date: "9 Agustus 2024",
+    tasks: [
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Kai Eunwoo",
+        type: "AC",
+        date: "9 Agustus 2024",
+        status: false,
+      ),
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Simon Eunwoo",
+        type: "Kulkas",
+        date: "9 Agustus 2024",
+        status: false,
+      ),
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Simon Eunwoo",
+        type: "Kulkas",
+        date: "9 Agustus 2024",
+        status: false,
+      ),
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Simon Eunwoo",
+        type: "Kulkas",
+        date: "9 Agustus 2024",
+        status: false,
+      ),
+    ],
+  ));
+  list.add(ScheduleTaskModel(
+    date: "13 Agustus 2024",
+    tasks: [
+      Task(
+        image: "assets/images/service-ac.jpg",
+        name: "Josh Eunwoo",
+        type: "Kulkas",
+        date: "13 Agustus 2024",
+        status: false,
+      ),
+    ],
   ));
   return list;
 }
