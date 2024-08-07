@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:homevice/app/modules/customer/order/views/payment_progress_view.dart';
-import 'package:homevice/app/modules/customer/order/views/payment_view.dart';
 
 import '../modules/customer/chat/bindings/chat_binding.dart';
 import '../modules/customer/chat/views/chat_view.dart';
@@ -8,14 +6,22 @@ import '../modules/customer/history/bindings/history_binding.dart';
 import '../modules/customer/history/views/history_view.dart';
 import '../modules/customer/home/bindings/home_binding.dart';
 import '../modules/customer/home/views/home_view.dart';
-import '../modules/login/bindings/login_binding.dart';
-import '../modules/login/views/login_view.dart';
 import '../modules/customer/main/bindings/main_binding.dart';
 import '../modules/customer/main/views/main_view.dart';
 import '../modules/customer/order/bindings/order_binding.dart';
 import '../modules/customer/order/views/order_view.dart';
+import '../modules/customer/order/views/payment_progress_view.dart';
+import '../modules/customer/order/views/payment_view.dart';
 import '../modules/customer/profile/bindings/profile_binding.dart';
 import '../modules/customer/profile/views/profile_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
+import '../modules/partner/pDashboard/bindings/p_dashboard_binding.dart';
+import '../modules/partner/pDashboard/views/p_dashboard_view.dart';
+import '../modules/partner/pMain/bindings/p_main_binding.dart';
+import '../modules/partner/pMain/views/p_main_view.dart';
+import '../modules/partner/pProfile/bindings/p_profile_binding.dart';
+import '../modules/partner/pProfile/views/p_profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/service/bindings/service_binding.dart';
@@ -90,6 +96,21 @@ class AppPages {
       name: _Paths.PAYMENT_PROGRESS,
       page: () => const PaymentProgressView(),
       binding: OrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.P_MAIN,
+      page: () => const PMainView(),
+      binding: PMainBinding(),
+    ),
+    GetPage(
+      name: _Paths.P_DASHBOARD,
+      page: () => const PDashboardView(),
+      binding: PDashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.P_PROFILE,
+      page: () => const PProfileView(),
+      binding: PProfileBinding(),
     ),
   ];
 }

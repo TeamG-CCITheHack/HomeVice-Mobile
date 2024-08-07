@@ -15,6 +15,9 @@ abstract class Routes {
   static const ORDER = _Paths.ORDER;
   static const PAYMENT = _Paths.PAYMENT;
   static const PAYMENT_PROGRESS = _Paths.PAYMENT_PROGRESS;
+  static const P_MAIN = _Paths.P_MAIN;
+  static const P_DASHBOARD = _Paths.P_DASHBOARD;
+  static const P_PROFILE = _Paths.P_PROFILE;
 }
 
 abstract class _Paths {
@@ -31,4 +34,7 @@ abstract class _Paths {
   static const ORDER = '/order';
   static const PAYMENT = '/payment';
   static const PAYMENT_PROGRESS = '/payment-progress';
+  static const P_MAIN = '/p-main';
+  static const P_DASHBOARD = '/p-dashboard';
+  static const P_PROFILE = '/p-profile';
 }
