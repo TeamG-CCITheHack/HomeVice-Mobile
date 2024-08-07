@@ -83,13 +83,29 @@ class PaymentView extends GetView<PaymentController> {
                         ),
                       ),
                       const SizedBox(height: 12),
-                      Text(
-                        'Nama teknisi : Ari Supratman',
-                        style: regularText14,
+                      Row(
+                        children: [
+                          Text(
+                            'Nama teknisi: ',
+                            style: regularText14,
+                          ),
+                          Text(
+                            'Ari Supratman',
+                            style: regularText14,
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Customer : Cha Eunwoo',
-                        style: regularText14,
+                      Row(
+                        children: [
+                          Text(
+                            'Customer: ',
+                            style: regularText14,
+                          ),
+                          Text(
+                            'Cha Eunwoo',
+                            style: regularText14,
+                          ),
+                        ],
                       ),
                       const Divider(
                         height: 25,
