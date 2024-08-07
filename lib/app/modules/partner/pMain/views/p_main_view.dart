@@ -18,6 +18,7 @@ class PMainView extends GetView<PMainController> {
               index: controller.tabIndex,
               children: const [
                 PDashboardView(),
+                PDashboardView(),
               ],
             ),
           ),

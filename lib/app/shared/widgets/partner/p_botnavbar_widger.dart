@@ -35,6 +35,18 @@ class PBotNavBarWidget extends StatelessWidget {
             size: 24,
             color: themeData.primaryColor,
           ),
+          label: 'Dashboard',
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(
+            Icons.dashboard,
+            size: 24,
+          ),
+          activeIcon: Icon(
+            Icons.dashboard,
+            size: 24,
+            color: themeData.primaryColor,
+          ),
           label: 'Beranda',
         ),
       ],
