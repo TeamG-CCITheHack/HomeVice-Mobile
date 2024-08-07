@@ -1,23 +1,50 @@
 import 'package:get/get.dart';
+import 'package:homevice/app/data/data_provider.dart';
+import 'package:homevice/app/data/model/scheduletask_model.dart';
 
 class PDashboardController extends GetxController {
-  //TODO: Implement PDashboardController
+  Rx<DateTime> selectedDate = DateTime.now().obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  List<ScheduleTaskModel> get scheduleTaskData => scheduleTaskDataList();
+
+  ScheduleTaskModel? get selectedScheduleTask {
+    return scheduleTaskData.firstWhereOrNull(
+      (schedule) => schedule.date == formatDate(selectedDate.value),
+    );
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  String formatDate(DateTime date) {
+    return "${date.day} ${monthName(date.month)} ${date.year}";
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  String monthName(int month) {
+    List<String> months = [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember"
+    ];
+    return months[month - 1];
   }
 
-  void increment() => count.value++;
+  String dayName(int weekday) {
+    List<String> days = [
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu",
+      "Minggu"
+    ];
+    return days[(weekday - 1) % 7];
+  }
 }
