@@ -4,10 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/colors.dart';
 import 'package:homevice/app/common/theme/theme.dart';
-import 'package:homevice/app/modules/order/controllers/payment_controller.dart';
+import 'package:homevice/app/modules/customer/order/controllers/payment_controller.dart';
 
-import '../../../common/theme/fonts.dart';
-import '../../../shared/widgets/custom_elevated_button.dart';
+import '../../../../common/theme/fonts.dart';
+import '../../../../shared/widgets/custom_elevated_button.dart';
 
 class PaymentView extends GetView<PaymentController> {
   const PaymentView({super.key});

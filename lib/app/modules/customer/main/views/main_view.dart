@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:homevice/app/modules/chat/views/chat_view.dart';
-import 'package:homevice/app/modules/history/views/history_view.dart';
-import 'package:homevice/app/modules/home/views/home_view.dart';
-import 'package:homevice/app/modules/profile/views/profile_view.dart';
+import 'package:homevice/app/modules/customer/chat/views/chat_view.dart';
+import 'package:homevice/app/modules/customer/history/views/history_view.dart';
+import 'package:homevice/app/modules/customer/home/views/home_view.dart';
+import 'package:homevice/app/modules/customer/profile/views/profile_view.dart';
 import 'package:homevice/app/modules/service/views/service_view.dart';
 import 'package:homevice/app/shared/widgets/botnavbar_widget.dart';
 

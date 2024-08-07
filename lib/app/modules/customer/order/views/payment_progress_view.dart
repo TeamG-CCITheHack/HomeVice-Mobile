@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:homevice/app/common/theme/fonts.dart';
-import 'package:homevice/app/modules/order/controllers/payment_progress_controller.dart';
+import 'package:homevice/app/modules/customer/order/controllers/payment_progress_controller.dart';
 import 'package:homevice/app/routes/app_pages.dart';
 
 class PaymentProgressView extends GetView<PaymentProgressController> {

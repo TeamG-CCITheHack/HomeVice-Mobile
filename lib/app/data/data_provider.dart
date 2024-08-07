@@ -1,6 +1,6 @@
 import 'package:homevice/app/data/model/allservice_model.dart';
 import 'package:homevice/app/data/model/service_model.dart';
-import 'package:homevice/app/modules/home/views/home_view.dart';
+import 'package:homevice/app/modules/customer/home/views/home_view.dart';
 
 List<AllServicesModel> allServicesDataList() {
   List<AllServicesModel> list = [];
