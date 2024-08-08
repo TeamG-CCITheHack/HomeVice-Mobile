@@ -18,6 +18,7 @@ abstract class Routes {
   static const P_MAIN = _Paths.P_MAIN;
   static const P_DASHBOARD = _Paths.P_DASHBOARD;
   static const P_PROFILE = _Paths.P_PROFILE;
+  static const P_CHAT = _Paths.P_CHAT;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const P_MAIN = '/p-main';
   static const P_DASHBOARD = '/p-dashboard';
   static const P_PROFILE = '/p-profile';
+  static const P_CHAT = '/p-chat';
 }

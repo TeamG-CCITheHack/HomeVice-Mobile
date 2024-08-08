@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/p_profile_controller.dart';
+import '../controllers/p_chat_controller.dart';
 
-class PProfileView extends GetView<PProfileController> {
-  const PProfileView({Key? key}) : super(key: key);
+class PChatView extends GetView<PChatController> {
+  const PChatView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PProfileView'),
+        title: const Text('PChatView'),
         centerTitle: true,
       ),
       body: const Center(
         child: Text(
-          'PProfileView is working',
+          'PChatView is working',
           style: TextStyle(fontSize: 20),
         ),
       ),

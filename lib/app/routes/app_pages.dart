@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:homevice/app/modules/pChat/bindings/p_chat_binding.dart';
+import 'package:homevice/app/modules/pChat/views/p_chat_view.dart';
 
 import '../modules/customer/chat/bindings/chat_binding.dart';
 import '../modules/customer/chat/views/chat_view.dart';
@@ -20,8 +22,6 @@ import '../modules/partner/pDashboard/bindings/p_dashboard_binding.dart';
 import '../modules/partner/pDashboard/views/p_dashboard_view.dart';
 import '../modules/partner/pMain/bindings/p_main_binding.dart';
 import '../modules/partner/pMain/views/p_main_view.dart';
-import '../modules/partner/pProfile/bindings/p_profile_binding.dart';
-import '../modules/partner/pProfile/views/p_profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/service/bindings/service_binding.dart';
@@ -108,9 +108,9 @@ class AppPages {
       binding: PDashboardBinding(),
     ),
     GetPage(
-      name: _Paths.P_PROFILE,
-      page: () => const PProfileView(),
-      binding: PProfileBinding(),
+      name: _Paths.P_CHAT,
+      page: () => const PChatView(),
+      binding: PChatBinding(),
     ),
   ];
 }

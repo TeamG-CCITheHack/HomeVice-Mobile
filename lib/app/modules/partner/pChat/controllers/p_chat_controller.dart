@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class PProfileController extends GetxController {
-  //TODO: Implement PProfileController
+class PChatController extends GetxController {
+  //TODO: Implement PChatController
 
   final count = 0.obs;
   @override
