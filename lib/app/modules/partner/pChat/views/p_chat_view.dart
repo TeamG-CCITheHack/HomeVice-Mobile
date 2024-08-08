@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/p_chat_controller.dart';
 
 class PChatView extends GetView<PChatController> {
-  const PChatView({Key? key}) : super(key: key);
+  const PChatView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

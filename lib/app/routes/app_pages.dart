@@ -1,7 +1,4 @@
 import 'package:get/get.dart';
-import 'package:homevice/app/modules/pChat/bindings/p_chat_binding.dart';
-import 'package:homevice/app/modules/pChat/views/p_chat_view.dart';
-
 import '../modules/customer/chat/bindings/chat_binding.dart';
 import '../modules/customer/chat/views/chat_view.dart';
 import '../modules/customer/history/bindings/history_binding.dart';
@@ -22,6 +19,8 @@ import '../modules/partner/pDashboard/bindings/p_dashboard_binding.dart';
 import '../modules/partner/pDashboard/views/p_dashboard_view.dart';
 import '../modules/partner/pMain/bindings/p_main_binding.dart';
 import '../modules/partner/pMain/views/p_main_view.dart';
+import '../modules/partner/pChat/bindings/p_chat_binding.dart';
+import '../modules/partner/pChat/views/p_chat_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/service/bindings/service_binding.dart';

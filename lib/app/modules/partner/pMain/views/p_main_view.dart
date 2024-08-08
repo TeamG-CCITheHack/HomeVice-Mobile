@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:homevice/app/modules/partner/pChat/views/p_chat_view.dart';
 import 'package:homevice/app/modules/partner/pDashboard/views/p_dashboard_view.dart';
-import 'package:homevice/app/modules/partner/pProfile/views/p_profile_view.dart';
 import 'package:homevice/app/shared/widgets/partner/p_botnavbar_widger.dart';
 
 import '../controllers/p_main_controller.dart';
@@ -19,7 +19,7 @@ class PMainView extends GetView<PMainController> {
               index: controller.tabIndex,
               children: const [
                 PDashboardView(),
-                PProfileView(),
+                PChatView(),
               ],
             ),
           ),
