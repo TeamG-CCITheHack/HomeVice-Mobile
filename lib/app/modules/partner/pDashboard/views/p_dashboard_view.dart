@@ -176,15 +176,15 @@ class PDashboardView extends GetView<PDashboardController> {
                 ),
               ],
             ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF4699BC),
-                  borderRadius: BorderRadius.circular(10),
-                ),
+            Container(
+              margin: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: const Color(0xFF4699BC),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: InkWell(
+                onTap: () {},
                 child: Text(
                   "Lihat Detail Pesanan",
                   style: mediumText14.copyWith(
@@ -268,6 +268,7 @@ class PDashboardView extends GetView<PDashboardController> {
         decoration: BoxDecoration(
           border: Border.all(
             color: isSelected ? const Color(0xFF4699BC) : Colors.transparent,
+            width: 3,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
